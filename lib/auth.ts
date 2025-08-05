@@ -70,7 +70,7 @@ export const auth = betterAuth({
   },
   trustedOrigins: [
     process.env.NODE_ENV !== "development"
-      ? "https://www.open-launch.com"
+      ? "https://ai-saas.org"
       : "http://localhost:3000",
   ],
   plugins: [
