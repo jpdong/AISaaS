@@ -24,6 +24,13 @@ Open Launch 项目选择使用 `.env` 作为主要配置文件的原因：
 
 如果你需要覆盖某些配置，可以创建 `.env.local` 文件，它会自动覆盖 `.env` 中的相同变量。
 
+## 配置分类
+
+Open Launch 的配置分为三类：
+- **必需配置**: 应用正常运行所必需的配置
+- **推荐配置**: 提升用户体验的配置
+- **可选配置**: 高级功能的配置
+
 ## 必需配置
 
 ### 应用基础配置
@@ -143,22 +150,29 @@ NEXT_PUBLIC_ONE_TAP_CLIENT_ID=your-google-client-id
 - Homepage URL: `http://localhost:3000`
 - Authorization callback URL: `http://localhost:3000/api/auth/callback/github`
 
-## 支付服务配置
+## 可选服务配置
 
-### Stripe 配置
+### Stripe 支付配置 (可选)
+
+**如果不需要支付功能，可以跳过此配置。应用会自动禁用相关功能。**
 
 ```env
-# Stripe 密钥
+# Stripe 密钥 (可选)
 STRIPE_SECRET_KEY=sk_test_xxx  # 测试环境
 # STRIPE_SECRET_KEY=sk_live_xxx  # 生产环境
 
-# Stripe Webhook 密钥
+# Stripe Webhook 密钥 (可选)
 STRIPE_WEBHOOK_SECRET=whsec_xxx
 
 # 支付链接 (可选)
 NEXT_PUBLIC_PREMIUM_PAYMENT_LINK=https://buy.stripe.com/xxx
 NEXT_PUBLIC_PREMIUM_PLUS_PAYMENT_LINK=https://buy.stripe.com/xxx
 ```
+
+**功能影响**:
+- 如果未配置 Stripe，用户仍可以免费提交项目
+- 高级功能（Premium/Premium Plus）将不可用
+- 用户管理和基础功能不受影响
 
 #### Stripe 设置步骤
 
@@ -337,34 +351,85 @@ REDIS_URL=rediss://default:password@host:port
 STRIPE_SECRET_KEY=sk_live_xxx
 ```
 
-## 配置验证
+## 功能可用性检查
 
-### 环境变量检查脚本
+Open Launch 会根据环境变量配置自动启用/禁用功能。你可以使用以下方法检查功能状态：
 
-创建 `scripts/check-env.js`:
+### 开发环境功能状态
 
-```javascript
-const requiredEnvVars = [
-  'DATABASE_URL',
-  'REDIS_URL',
-  'BETTER_AUTH_SECRET',
-  'NEXT_PUBLIC_URL'
-];
+启动开发服务器时，控制台会显示功能状态：
 
-const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+```bash
+bun run dev
 
-if (missingVars.length > 0) {
-  console.error('❌ 缺少必需的环境变量:');
-  missingVars.forEach(varName => console.error(`  - ${varName}`));
-  process.exit(1);
-} else {
-  console.log('✅ 所有必需的环境变量都已配置');
+# 输出示例:
+🚀 Feature Flags Status:
+  💳 Stripe: ❌
+  🔐 Google OAuth: ✅
+  🐙 GitHub OAuth: ✅
+  📧 Email: ❌
+  📁 File Upload: ✅
+  🤖 Captcha: ✅
+  💬 Discord: ❌
+  📊 Analytics: ❌
+```
+
+### 代码中检查功能状态
+
+```typescript
+import { featureFlags, isFeatureEnabled } from '@/lib/feature-flags'
+
+// 检查 Stripe 是否可用
+if (featureFlags.stripe.enabled) {
+  // 显示付费功能
+}
+
+// 检查可用的 OAuth 提供商
+const oauthProviders = getAvailableOAuthProviders()
+// ['google', 'github']
+
+// 检查是否有任何 OAuth 提供商
+if (hasAnyOAuthProvider()) {
+  // 显示社交登录选项
 }
 ```
 
-运行检查:
+## 配置验证
+
+### 配置检查脚本
+
+使用内置的配置检查脚本验证环境变量：
+
 ```bash
-node scripts/check-env.js
+# 检查所有配置
+bun run check-config
+
+# 或使用 npm
+npm run check-config
+```
+
+**输出示例**:
+```
+🚀 Open Launch 配置检查工具
+
+🔍 检查必需配置...
+
+✅ DATABASE_URL: 已配置
+✅ REDIS_URL: 已配置  
+✅ BETTER_AUTH_SECRET: 已配置
+✅ NEXT_PUBLIC_URL: 已配置
+
+✅ 所有必需配置都已设置
+
+🔍 检查可选功能配置...
+
+✅ 🔐 Google OAuth 登录: 已完整配置
+⭕ 💳 Stripe 支付功能: 未配置 (功能将被禁用)
+✅ 📁 文件上传功能: 已完整配置
+
+📋 总结:
+✅ 应用可以正常启动
+💡 可选功能将根据配置自动启用/禁用
 ```
 
 ### 数据库连接测试

@@ -7,7 +7,10 @@ import Stripe from "stripe"
 
 import { sendEmail } from "@/lib/email"
 
-const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// 只有在 Stripe 密钥存在时才创建 Stripe 客户端
+const stripeClient = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY !== 'sk_test_...' 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY) 
+  : null
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -59,14 +62,32 @@ export const auth = betterAuth({
     expiresIn: 86400,
   },
   socialProviders: {
-    google: {
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    },
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
-    },
+    // 只有在 Google OAuth 配置完整时才启用
+    ...(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID && 
+        process.env.GOOGLE_CLIENT_SECRET && 
+        process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== 'your_google_client_id' &&
+        process.env.GOOGLE_CLIENT_SECRET !== 'your_google_client_secret'
+      ? {
+          google: {
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          }
+        }
+      : {}
+    ),
+    // 只有在 GitHub OAuth 配置完整时才启用
+    ...(process.env.GITHUB_CLIENT_ID && 
+        process.env.GITHUB_CLIENT_SECRET && 
+        process.env.GITHUB_CLIENT_ID !== 'your_github_client_id' &&
+        process.env.GITHUB_CLIENT_SECRET !== 'your_github_client_secret'
+      ? {
+          github: {
+            clientId: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          }
+        }
+      : {}
+    ),
   },
   trustedOrigins: [
     process.env.NODE_ENV !== "development"
@@ -74,19 +95,31 @@ export const auth = betterAuth({
       : "http://localhost:3000",
   ],
   plugins: [
-    stripe({
-      stripeClient,
-      stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
-      createCustomerOnSignUp: true,
-    }),
-    captcha({
-      provider: "cloudflare-turnstile", // or "google-recaptcha"
-      secretKey: process.env.TURNSTILE_SECRET_KEY!,
-      endpoints: ["/sign-up/email", "/sign-in/email", "/forget-password"],
-    }),
-    oneTap({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-    }),
+    // 只有在 Stripe 配置完整时才启用 Stripe 插件
+    ...(stripeClient && process.env.STRIPE_WEBHOOK_SECRET && process.env.STRIPE_WEBHOOK_SECRET !== 'whsec_...' 
+      ? [stripe({
+          stripeClient,
+          stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+          createCustomerOnSignUp: true,
+        })] 
+      : []
+    ),
+    // 只有在 Turnstile 配置完整时才启用验证码插件
+    ...(process.env.TURNSTILE_SECRET_KEY && process.env.TURNSTILE_SECRET_KEY !== 'your_turnstile_secret_key'
+      ? [captcha({
+          provider: "cloudflare-turnstile",
+          secretKey: process.env.TURNSTILE_SECRET_KEY,
+          endpoints: ["/sign-up/email", "/sign-in/email", "/forget-password"],
+        })]
+      : []
+    ),
+    // 只有在 Google Client ID 配置时才启用 One Tap
+    ...(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID && process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== 'your_google_client_id'
+      ? [oneTap({
+          clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+        })]
+      : []
+    ),
     admin({}),
   ],
 })

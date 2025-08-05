@@ -1,9 +1,10 @@
 {
-  "name": "ai-saas",
+  "name": "open-launch",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
+    "check-config": "node scripts/check-config.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
