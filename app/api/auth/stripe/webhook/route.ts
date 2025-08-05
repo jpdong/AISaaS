@@ -6,12 +6,23 @@ import { launchQuota, launchStatus, launchType, project } from "@/drizzle/db/sch
 import { eq, sql } from "drizzle-orm"
 import Stripe from "stripe"
 
-// Initialiser le client Stripe
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
+import { featureFlags } from "@/lib/feature-flags"
+
+// 只有在 Stripe 功能启用时才初始化客户端
+const stripe =
+  featureFlags.stripe.enabled && process.env.STRIPE_SECRET_KEY
+    ? new Stripe(process.env.STRIPE_SECRET_KEY)
+    : null
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || null
 
 export async function POST(request: Request) {
   try {
+    // 检查 Stripe 功能是否启用
+    if (!featureFlags.stripe.enabled || !stripe || !webhookSecret) {
+      console.error("Stripe webhook functionality is not enabled")
+      return NextResponse.json({ error: "Stripe functionality is not enabled" }, { status: 400 })
+    }
+
     const body = await request.text()
     const signature = request.headers.get("stripe-signature") as string
 

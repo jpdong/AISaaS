@@ -33,6 +33,7 @@ import {
   LAUNCH_TYPES,
   PREMIUM_PAYMENT_LINK,
 } from "@/lib/constants"
+import { featureFlags } from "@/lib/feature-flags"
 import { UploadButton } from "@/lib/uploadthing"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -480,7 +481,22 @@ export function SubmitProjectForm({ userId }: SubmitProjectFormProps) {
       if (formData.launchType === LAUNCH_TYPES.FREE) {
         router.push(`/projects/${projectSlug}`)
       } else {
+        // 检查 Stripe 功能是否启用
+        if (!featureFlags.stripe.enabled) {
+          console.error("Stripe payment functionality is not enabled")
+          setError("Payment functionality is currently unavailable. Please try free submission.")
+          setIsPending(false)
+          return
+        }
+
         const paymentLink = PREMIUM_PAYMENT_LINK
+
+        if (!paymentLink) {
+          console.error("Payment link is not configured")
+          setError("Payment configuration is incomplete. Please contact support.")
+          setIsPending(false)
+          return
+        }
 
         const paymentUrl = `${paymentLink}?client_reference_id=${projectId}`
 
@@ -1027,44 +1043,61 @@ export function SubmitProjectForm({ userId }: SubmitProjectFormProps) {
                   </ul>
                 </div>
 
-                <div
-                  className={`cursor-pointer rounded-lg border p-4 transition-all duration-150 ${formData.launchType === LAUNCH_TYPES.PREMIUM ? "border-primary/70 ring-primary/70 bg-primary/5 relative shadow-sm ring-1" : "hover:border-primary/50 hover:bg-primary/5"}`}
-                  onClick={() => handleLaunchTypeChange(LAUNCH_TYPES.PREMIUM)}
-                >
-                  {formData.launchType === LAUNCH_TYPES.PREMIUM && (
-                    <Badge
-                      variant="default"
-                      className="bg-primary text-primary-foreground absolute -top-2 -right-2 text-xs"
-                    >
-                      Selected
-                    </Badge>
-                  )}
-                  <h5 className="mb-2 flex items-center gap-1.5 font-medium">
-                    <RiStarLine className="text-primary h-4 w-4" />
-                    Premium Launch
-                  </h5>
-                  <p className="mb-3 text-2xl font-bold">${LAUNCH_SETTINGS.PREMIUM_PRICE}</p>
-                  <ul className="space-y-1 text-sm">
-                    <li className="flex items-center gap-1.5">
-                      <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
-                      <span className="font-semibold">Skip the Free Queue</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
-                      <span className="font-semibold">
-                        Guaranteed Dofollow Backlink (DR {DOMAIN_AUTHORITY})
-                      </span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
-                      <span>{LAUNCH_LIMITS.PREMIUM_DAILY_LIMIT} premium slots/day</span>
-                    </li>
-                    <li className="flex items-center gap-1.5">
-                      <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
-                      <span>Up to {LAUNCH_SETTINGS.PREMIUM_MAX_DAYS_AHEAD} days scheduling</span>
-                    </li>
-                  </ul>
-                </div>
+                {/* Premium Launch Option - 只有在 Stripe 功能启用时才显示 */}
+                {featureFlags.stripe.enabled && (
+                  <div
+                    className={`cursor-pointer rounded-lg border p-4 transition-all duration-150 ${formData.launchType === LAUNCH_TYPES.PREMIUM ? "border-primary/70 ring-primary/70 bg-primary/5 relative shadow-sm ring-1" : "hover:border-primary/50 hover:bg-primary/5"}`}
+                    onClick={() => handleLaunchTypeChange(LAUNCH_TYPES.PREMIUM)}
+                  >
+                    {formData.launchType === LAUNCH_TYPES.PREMIUM && (
+                      <Badge
+                        variant="default"
+                        className="bg-primary text-primary-foreground absolute -top-2 -right-2 text-xs"
+                      >
+                        Selected
+                      </Badge>
+                    )}
+                    <h5 className="mb-2 flex items-center gap-1.5 font-medium">
+                      <RiStarLine className="text-primary h-4 w-4" />
+                      Premium Launch
+                    </h5>
+                    <p className="mb-3 text-2xl font-bold">${LAUNCH_SETTINGS.PREMIUM_PRICE}</p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-center gap-1.5">
+                        <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
+                        <span className="font-semibold">Skip the Free Queue</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
+                        <span className="font-semibold">
+                          Guaranteed Dofollow Backlink (DR {DOMAIN_AUTHORITY})
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
+                        <span>{LAUNCH_LIMITS.PREMIUM_DAILY_LIMIT} premium slots/day</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <RiCheckboxCircleFill className="text-primary/80 h-3.5 w-3.5 flex-shrink-0" />
+                        <span>Up to {LAUNCH_SETTINGS.PREMIUM_MAX_DAYS_AHEAD} days scheduling</span>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                {/* 当 Stripe 功能被禁用时显示提示 */}
+                {!featureFlags.stripe.enabled && (
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div className="mb-2 flex items-center gap-2">
+                      <RiInformationLine className="h-4 w-4 text-gray-500" />
+                      <h5 className="font-medium text-gray-700">Premium Features Unavailable</h5>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Premium launch options are currently unavailable. You can still submit your
+                      project for free!
+                    </p>
+                  </div>
+                )}
 
                 {/* <div
                   className={`cursor-pointer rounded-lg border p-4 transition-all duration-150 ${

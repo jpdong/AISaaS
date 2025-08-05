@@ -52,7 +52,12 @@ function PaymentSuccessContent() {
         const data = await response.json()
 
         if (!response.ok) {
-          setError(data.error || "Failed to verify payment")
+          // 特殊处理支付功能被禁用的情况
+          if (data.status === "disabled") {
+            setError("Payment functionality is currently disabled. Please contact support.")
+          } else {
+            setError(data.error || "Failed to verify payment")
+          }
           setIsLoading(false)
           return
         }

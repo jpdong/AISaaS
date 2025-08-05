@@ -19,7 +19,7 @@ export async function sendEmail(payload: EmailPayload) {
 
   try {
     const data = await resend.emails.send({
-      from: "AI SaaS <noreply@open-launch.com>",
+      from: "AI SaaS",
       to,
       subject,
       html,
