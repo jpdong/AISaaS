@@ -60,7 +60,7 @@ export const auth = betterAuth({
   },
   socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
     github: {
@@ -70,7 +70,7 @@ export const auth = betterAuth({
   },
   trustedOrigins: [
     process.env.NODE_ENV !== "development"
-      ? "https://ai-saas.org"
+      ? process.env.NEXT_PUBLIC_URL!
       : "http://localhost:3000",
   ],
   plugins: [
@@ -85,7 +85,7 @@ export const auth = betterAuth({
       endpoints: ["/sign-up/email", "/sign-in/email", "/forget-password"],
     }),
     oneTap({
-      clientId: process.env.NEXT_PUBLIC_ONE_TAP_CLIENT_ID!,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
     }),
     admin({}),
   ],

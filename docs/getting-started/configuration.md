@@ -7,11 +7,22 @@ AI SaaS 使用环境变量来管理不同环境下的配置。本指南将详细
 ### 配置文件结构
 
 ```
-.env                 # 本地开发环境配置
-.env.example         # 环境变量模板
-.env.local           # 本地覆盖配置 (可选)
+.env.example         # 环境变量模板 (已提交到版本控制)
+.env                 # 本地开发环境配置 (不提交到版本控制)
+.env.local           # 本地覆盖配置 (可选，优先级更高)
 .env.production      # 生产环境配置 (部署时使用)
 ```
+
+**为什么使用 `.env` 而不是 `.env.local`？**
+
+Open Launch 项目选择使用 `.env` 作为主要配置文件的原因：
+
+1. **开源项目惯例**: 提供 `.env.example` 模板，用户复制为 `.env`
+2. **简化配置**: 避免多个环境文件的复杂性
+3. **统一管理**: 开发和本地测试使用同一配置文件
+4. **清晰明确**: 所有配置都在一个文件中，便于管理
+
+如果你需要覆盖某些配置，可以创建 `.env.local` 文件，它会自动覆盖 `.env` 中的相同变量。
 
 ## 必需配置
 
@@ -97,7 +108,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 
 1. 访问 [Google Cloud Console](https://console.cloud.google.com/)
 2. 创建新项目或选择现有项目
-3. 启用 Google+ API
+3. 启用 Google+ API 和 Google Identity API
 4. 创建 OAuth 2.0 客户端 ID
 
 **重定向 URI 配置**:
@@ -105,6 +116,21 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 http://localhost:3000/api/auth/callback/google  # 开发环境
 https://your-domain.com/api/auth/callback/google  # 生产环境
 ```
+
+**环境变量配置**:
+```env
+# Google OAuth 基础配置
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# Google One Tap (通常使用相同的 Client ID)
+NEXT_PUBLIC_ONE_TAP_CLIENT_ID=your-google-client-id
+```
+
+**常见问题**:
+- 如果遇到 "Missing required parameter: client_id" 错误，请确保 `NEXT_PUBLIC_GOOGLE_CLIENT_ID` 已正确配置
+- Google One Tap 功能需要在 Google Cloud Console 中启用 "Google Identity API"
+- 确保域名已添加到 Google OAuth 的授权域名列表中
 
 ### GitHub OAuth 设置
 
