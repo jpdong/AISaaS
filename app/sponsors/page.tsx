@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button"
 import { getLast30DaysPageviews, getLast30DaysVisitors } from "@/app/actions/plausible"
 
 export const metadata = {
-  title: "Sponsors - Open-Launch",
-  description: "Support Open-Launch and gain visibility for your product or service.",
+  title: "Sponsors - AI SaaS",
+  description: "Support AI SaaS and gain visibility for your product or service.",
 }
 
 export default async function SponsorsPage() {
@@ -60,7 +60,7 @@ export default async function SponsorsPage() {
       <div className="mb-8 text-center">
         <h1 className="mb-3 text-2xl font-bold sm:text-3xl">Become a Sponsor</h1>
         <p className="text-muted-foreground mx-auto max-w-xl text-sm">
-          Support Open-Launch and gain visibility. Limited sponsorship slots for maximum impact.
+          Support AI SaaS and gain visibility. Limited sponsorship slots for maximum impact.
         </p>
         <p className="text-primary text-center text-sm font-medium">
           Currently, <span className="font-bold">{remainingSlots}</span> slot

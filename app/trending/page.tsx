@@ -27,8 +27,8 @@ interface ProjectSummary {
 }
 
 export const metadata = {
-  title: "Trending - Open-Launch",
-  description: "Discover trending tech products on Open-Launch",
+  title: "Trending - AI SaaS",
+  description: "Discover trending tech products on AI SaaS",
 }
 
 // Composant Skeleton principal

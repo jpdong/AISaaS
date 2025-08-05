@@ -1,6 +1,6 @@
-# Open-Launch
+# AI SaaS
 
-[![License: Open Launch](https://img.shields.io/badge/License-Open_Launch-yellow.svg)](LICENSE)
+[![License: AI SaaS](https://img.shields.io/badge/License-Open_Launch-yellow.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.1-black?logo=next.js)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19.1.0-blue?logo=react)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?logo=typescript)](https://www.typescriptlang.org)
@@ -18,7 +18,7 @@
 </div>
 
 <div align="center">
-  <img src="https://open-launch.com/og.png" alt="Open Launch Screenshot" width="800px" />
+  <img src="https://open-launch.com/og.png" alt="AI SaaS Screenshot" width="800px" />
 </div>
 
 ## 📋 Table of Contents
@@ -121,7 +121,7 @@ Visit `http://localhost:3000` to see your app running.
 
 ## Deployment
 
-Open Launch is optimized for deployment on Vercel but can be deployed on any platform that supports Next.js.
+AI SaaS is optimized for deployment on Vercel but can be deployed on any platform that supports Next.js.
 
 ```bash
 # Build the application
@@ -137,7 +137,7 @@ bun run start
 
 ## Contributing
 
-We welcome contributions to Open Launch! Here's how you can help:
+We welcome contributions to AI SaaS! Here's how you can help:
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -149,7 +149,7 @@ Please read our [Contributing Guide](CONTRIBUTING.md) for more details.
 
 ## License
 
-This project is licensed under the Open-Launch License - see the [LICENSE](LICENSE) file for details. **Attribution with dofollow link required for all uses.**
+This project is licensed under the AI SaaS License - see the [LICENSE](LICENSE) file for details. **Attribution with dofollow link required for all uses.**
 
 ## Acknowledgments
 
@@ -163,7 +163,7 @@ This project is licensed under the Open-Launch License - see the [LICENSE](LICEN
 
 ## Sponsoring
 
-Open Launch is an open source project that relies on community support to continue its development. If you find this project useful, please consider supporting it:
+AI SaaS is an open source project that relies on community support to continue its development. If you find this project useful, please consider supporting it:
 
 - [Buy Me a Coffee](https://buymeacoffee.com/drdruide)
 

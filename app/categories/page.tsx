@@ -20,8 +20,8 @@ import {
 } from "@/app/actions/projects"
 
 export const metadata = {
-  title: "Categories - Open-Launch",
-  description: "Browse tech products by category on Open-Launch",
+  title: "Categories - AI SaaS",
+  description: "Browse tech products by category on AI SaaS",
 }
 
 // Composant Skeleton pour le chargement des chaînes

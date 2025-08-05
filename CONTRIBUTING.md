@@ -1,6 +1,6 @@
-# Contributing to Open Launch
+# Contributing to AI SaaS
 
-Thank you for your interest in contributing to Open Launch! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to AI SaaS! This document provides guidelines and instructions for contributing to the project.
 
 ## 🤝 Code of Conduct
 
@@ -92,4 +92,4 @@ Feel free to:
 - Open an issue
 - Contact the maintainers
 
-Thank you for contributing to Open Launch! 🚀
+Thank you for contributing to AI SaaS! 🚀
