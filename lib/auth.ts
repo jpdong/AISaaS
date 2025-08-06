@@ -32,11 +32,16 @@ export const auth = betterAuth({
         <p>If you didn't request this, please ignore this email.</p>
       `
 
-      await sendEmail({
-        to: user.email,
-        subject: "Reset your password",
-        html,
-      })
+      try {
+        await sendEmail({
+          to: user.email,
+          subject: "Reset your password",
+          html,
+        })
+      } catch (error) {
+        console.error("Failed to send reset password email:", error)
+        // 不抛出错误，避免阻塞密码重置流程
+      }
     },
   },
   emailVerification: {
@@ -53,11 +58,16 @@ export const auth = betterAuth({
         <p>If you didn't create an account, please ignore this email.</p>
       `
 
-      await sendEmail({
-        to: user.email,
-        subject: "Verify your email address",
-        html,
-      })
+      try {
+        await sendEmail({
+          to: user.email,
+          subject: "Verify your email address",
+          html,
+        })
+      } catch (error) {
+        console.error("Failed to send verification email:", error)
+        // 不抛出错误，避免阻塞用户注册
+      }
     },
     expiresIn: 86400,
   },
