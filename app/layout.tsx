@@ -21,25 +21,37 @@ const fontHeading = FontHeading({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
-  title: "AI SaaS - Discover the Best AI SaaS Products",
+  title: "AI SaaS - Find the Best AI Tools & Software",
   description:
-    "AI SaaS is a platform to discover and upvote the best tech products. Find top products launching daily.",
-    icons: {
-      icon: '/logo.png',
+    "Discover, explore, and launch the best AI SaaS tools. Join thousands of developers, entrepreneurs, and AI enthusiasts finding cutting-edge artificial intelligence solutions daily.",
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
+  alternates: {
+    canonical: "https://ai-saas.org/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-    alternates: {
-      canonical: `https://ai-saas.org/`,
-    },
-    openGraph: {
-    title: "AI SaaS - Discover the Best AI SaaS Products",
+  },
+  openGraph: {
+    title: "AI SaaS Discovery Platform - Find the Best AI Tools & Software",
     description:
-      "AI SaaS is a platform to discover and upvote the best AI SaaS products. Find top products launching daily.",
-    url: process.env.NEXT_PUBLIC_URL,
-    siteName: "AI SaaS",
+      "Discover, explore, and launch the best AI SaaS tools and software. Join thousands of developers, entrepreneurs, and AI enthusiasts finding cutting-edge artificial intelligence solutions daily.",
+    url: "https://ai-saas.org/",
+    siteName: "AI SaaS Discovery Platform",
     images: [
       {
-        url: "logo.png",
-        alt: "AI SaaS - Discover the Best Tech Products",
+        url: "/logo.png",
+        alt: "AI SaaS Discovery Platform - Find the Best AI Tools & Software",
       },
     ],
     locale: "en_US",
@@ -47,11 +59,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI SaaS - Discover the Best Tech Products",
+    title: "AI SaaS Discovery Platform - Find the Best AI Tools & Software",
     description:
-      "AI SaaS is a platform to discover and upvote the best tech products. Find top products launching daily.",
-    images: ["logo.png"],
+      "Discover, explore, and launch the best AI SaaS tools and software. Join thousands of developers, entrepreneurs, and AI enthusiasts.",
+    images: ["/logo.png"],
+    creator: "@aisaas",
   },
+  
 }
 
 export default function RootLayout({

@@ -20,8 +20,18 @@ import {
 } from "@/app/actions/projects"
 
 export const metadata = {
-  title: "Categories - AI SaaS",
-  description: "Browse tech products by category on AI SaaS",
+  title: "AI SaaS Categories - Browse AI Tools by Category",
+  description: "Browse AI SaaS tools and software by category. Discover machine learning platforms, automation tools, NLP solutions, and more artificial intelligence products.",
+  keywords: ["AI categories", "AI tools by category", "machine learning platforms", "automation software", "AI SaaS categories"],
+  alternates: {
+    canonical: "https://ai-saas.org/categories",
+  },
+  openGraph: {
+    title: "AI SaaS Categories - Browse AI Tools by Category",
+    description: "Browse AI SaaS tools and software by category. Discover machine learning platforms, automation tools, NLP solutions, and more.",
+    type: "website",
+    url: "https://ai-saas.org/categories",
+  },
 }
 
 // Composant Skeleton pour le chargement des chaînes

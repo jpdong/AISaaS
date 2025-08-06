@@ -8,17 +8,20 @@ import { desc } from "drizzle-orm"
 import { Calendar, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Blog | AI SaaS - Insights & Resources",
+  title: "AI SaaS Blog - AI Tools Insights & Resources",
   description:
-    "Discover insights, tutorials, and resources to help you build and launch successful products.",
-  keywords: "blog, insights, tutorials, product launch, entrepreneurship, technology, startup",
+    "Discover insights, tutorials, and resources about AI SaaS tools. Learn how to build and launch successful artificial intelligence products and software.",
+  keywords: ["AI SaaS blog", "AI tools insights", "artificial intelligence tutorials", "AI product launch", "machine learning resources", "AI startup guides"],
   authors: [{ name: "AI SaaS Team" }],
+  alternates: {
+    canonical: "https://ai-saas.org/blog",
+  },
   openGraph: {
-    title: "Blog | AI SaaS - Insights & Resources",
+    title: "AI SaaS Blog - AI Tools Insights & Resources",
     description:
-      "Discover insights, tutorials, and resources to help you build and launch successful products.",
+      "Discover insights, tutorials, and resources about AI SaaS tools. Learn how to build and launch successful artificial intelligence products.",
     type: "website",
-    url: "/blog",
+    url: "https://ai-saas.org/blog",
     siteName: "AI SaaS",
     images: [
       {
@@ -29,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | AI SaaS - Insights & Resources",
+    title: "AI SaaS Blog - AI Tools Insights & Resources",
     description:
-      "Discover insights, tutorials, and resources to help you build and launch successful products.",
+      "Discover insights, tutorials, and resources about AI SaaS tools. Learn how to build and launch successful artificial intelligence products.",
     images: ["/logo.png"],
   },
 }

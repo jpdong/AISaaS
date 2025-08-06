@@ -53,11 +53,24 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || []
 
   return {
-    title: `${projectData.name} | AI SaaS`,
+    title: `${projectData.name} | AI SaaS Discovery Platform`,
     description: stripHtml(projectData.description),
+    keywords: [
+      projectData.name,
+      "AI SaaS",
+      "artificial intelligence",
+      "AI tool",
+      ...projectData.categories.map(cat => cat.name),
+      ...(projectData.techStack || [])
+    ],
+    alternates: {
+      canonical: `https://ai-saas.org/projects/${slug}`,
+    },
     openGraph: {
-      title: `${projectData.name} on AI SaaS`,
+      title: `${projectData.name} on AI SaaS Discovery Platform`,
       description: stripHtml(projectData.description),
+      url: `https://ai-saas.org/projects/${slug}`,
+      type: "website",
       images: [
         projectData.productImage || projectData.coverImageUrl || projectData.logoUrl,
         ...previousImages,
@@ -65,7 +78,7 @@ export async function generateMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      title: `${projectData.name} on AI SaaS`,
+      title: `${projectData.name} on AI SaaS Discovery Platform`,
       description: stripHtml(projectData.description),
       images: [projectData.productImage || projectData.logoUrl],
     },

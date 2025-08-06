@@ -4,7 +4,20 @@ import Link from "next/link"
 
 export const metadata = {
   title: "Terms of Service - AI SaaS Discovery Platform",
-  description: "Terms of Service for AI SaaS Discovery Platform",
+  description: "Terms of Service for AI SaaS Discovery Platform. Read our terms and conditions for using our AI SaaS discovery and showcase platform.",
+  alternates: {
+    canonical: "https://ai-saas.org/legal/terms",
+  },
+  openGraph: {
+    title: "Terms of Service - AI SaaS Discovery Platform",
+    description: "Terms of Service for AI SaaS Discovery Platform. Read our terms and conditions.",
+    type: "website",
+    url: "https://ai-saas.org/legal/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TermsOfServicePage() {

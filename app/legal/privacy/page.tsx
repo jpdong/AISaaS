@@ -2,7 +2,20 @@ import Link from "next/link"
 
 export const metadata = {
   title: "Privacy Policy - AI SaaS Discovery Platform",
-  description: "Privacy Policy for AI SaaS Discovery Platform",
+  description: "Privacy Policy for AI SaaS Discovery Platform. Learn how we collect, use, and protect your personal data when using our AI SaaS discovery platform.",
+  alternates: {
+    canonical: "https://ai-saas.org/legal/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy - AI SaaS Discovery Platform",
+    description: "Privacy Policy for AI SaaS Discovery Platform. Learn how we protect your data.",
+    type: "website",
+    url: "https://ai-saas.org/legal/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function PrivacyPolicyPage() {

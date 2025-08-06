@@ -1,8 +1,28 @@
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
+import { Metadata } from "next"
 
 import { auth } from "@/lib/auth"
 import { SubmitProjectForm } from "@/components/project/submit-form"
+
+export const metadata: Metadata = {
+  title: "Submit Your AI SaaS Project - AI SaaS Discovery Platform",
+  description: "Submit your AI SaaS tool or artificial intelligence software to our discovery platform. Share your AI project with thousands of developers and entrepreneurs.",
+  keywords: ["submit AI project", "AI SaaS submission", "launch AI tool", "AI product launch", "artificial intelligence platform"],
+  alternates: {
+    canonical: "https://ai-saas.org/projects/submit",
+  },
+  openGraph: {
+    title: "Submit Your AI SaaS Project - AI SaaS Discovery Platform",
+    description: "Submit your AI SaaS tool or artificial intelligence software to our discovery platform. Share your AI project with thousands of developers.",
+    type: "website",
+    url: "https://ai-saas.org/projects/submit",
+  },
+  robots: {
+    index: false, // Don't index submission forms
+    follow: true,
+  },
+}
 
 export default async function SubmitProject() {
   // Verify the user is logged in
