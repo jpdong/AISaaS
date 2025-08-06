@@ -20,7 +20,6 @@ const fontHeading = FontHeading({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
   title: "AI SaaS - Find the Best AI Tools & Software",
   description:
     "Discover, explore, and launch the best AI SaaS tools. Join thousands of developers, entrepreneurs, and AI enthusiasts finding cutting-edge artificial intelligence solutions daily.",
