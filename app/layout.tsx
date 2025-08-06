@@ -8,6 +8,8 @@ import Nav from "@/components/layout/nav"
 import { ThemeProvider } from "@/components/theme/theme-provider"
 
 import "./globals.css"
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics"
+import CookieConsent from "@/components/analytics/CookieConsent"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -79,6 +81,7 @@ export default function RootLayout({
         className={`font-sans antialiased ${fontSans.variable} ${fontHeading.variable} sm:overflow-y-scroll`}
         suppressHydrationWarning
       >
+        <GoogleAnalytics/>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -92,6 +95,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
         <Toaster />
+        <CookieConsent/>
       </body>
     </html>
   )
