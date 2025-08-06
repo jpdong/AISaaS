@@ -33,9 +33,7 @@ export const metadata: Metadata = {
     siteName: "AI SaaS",
     images: [
       {
-        url: "og.png",
-        width: 1200,
-        height: 630,
+        url: "logo.png",
         alt: "AI SaaS - Discover the Best Tech Products",
       },
     ],
@@ -47,7 +45,7 @@ export const metadata: Metadata = {
     title: "AI SaaS - Discover the Best Tech Products",
     description:
       "AI SaaS is a platform to discover and upvote the best tech products. Find top products launching daily.",
-    images: ["og.png"],
+    images: ["logo.png"],
   },
 }
 
@@ -58,18 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <PlausibleProvider
-          domain="open-launch.com"
-          customDomain="https://plausible.dailypings.com"
-          selfHosted={true}
-          trackOutboundLinks={true}
-          scriptProps={{
-            src: "https://plausible.dailypings.com/js/script.js",
-          }}
-          enabled={process.env.NODE_ENV === "production"}
-        />
-      </head>
+      
       <body
         className={`font-sans antialiased ${fontSans.variable} ${fontHeading.variable} sm:overflow-y-scroll`}
         suppressHydrationWarning

@@ -22,9 +22,7 @@ export const metadata: Metadata = {
     siteName: "AI SaaS",
     images: [
       {
-        url: "/og-blog.png",
-        width: 1200,
-        height: 630,
+        url: "/logo.png",
         alt: "AI SaaS Blog",
       },
     ],
@@ -34,7 +32,7 @@ export const metadata: Metadata = {
     title: "Blog | AI SaaS - Insights & Resources",
     description:
       "Discover insights, tutorials, and resources to help you build and launch successful products.",
-    images: ["/og-blog.png"],
+    images: ["/logo.png"],
   },
 }
 
