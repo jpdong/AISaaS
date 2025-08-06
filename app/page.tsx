@@ -6,7 +6,6 @@ import { auth } from "@/lib/auth"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ProjectSection } from "@/components/home/project-section"
-import { SponsorCards } from "@/components/shared/sponsor-cards"
 import { getMonthBestProjects, getTodayProjects, getYesterdayProjects } from "@/app/actions/home"
 import { getLast30DaysPageviews, getLast30DaysVisitors } from "@/app/actions/plausible"
 import { getTopCategories } from "@/app/actions/projects"
@@ -32,95 +31,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:items-start">
           {/* Contenu principal */}
           <div className="space-y-6 sm:space-y-8 lg:col-span-2">
-            {/* Welcome */}
-            <div className="bg-secondary/70 hover:bg-secondary border-border/40 relative z-10 overflow-hidden rounded-lg border">
-              <div className="container mx-auto max-w-6xl px-4 py-3 md:py-4">
-                {/* Mobile Layout - Centered */}
-                <div className="flex flex-col items-center justify-center gap-3 md:hidden">
-                  <Link href="/pricing" className="flex cursor-pointer flex-col gap-2 text-center">
-                    <div>
-                      <h1 className="text-foreground text-base font-semibold">
-                        <span>Launch platform for your products</span>
-                      </h1>
-                      <p className="text-muted-foreground text-xs">
-                        <span>Submit, get a badge & backlink</span>
-                      </p>
-                    </div>
-                  </Link>
-                  <div>
-                    <a
-                      href="https://frogdr.com/open-launch.com?utm_source=open-launch.com"
-                      target="_blank"
-                    >
-                      {/* Light mode badge */}
-                      <img
-                        src="https://frogdr.com/open-launch.com/badge-white-sm.svg?round=1"
-                        alt="Monitor your Domain Rating with FrogDR"
-                        className="h-6 w-auto dark:hidden"
-                      />
-                      {/* Dark mode badge */}
-                      <img
-                        src="https://frogdr.com/open-launch.com/badge-dark-sm.svg?round=1"
-                        alt="Monitor your Domain Rating with FrogDR"
-                        className="hidden h-6 w-auto dark:block"
-                      />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Desktop Layout - Text left, Image right */}
-
-                <div className="hidden items-center justify-center gap-12 md:flex">
-                  {/* image 1 */}
-                  <div className="flex-shrink-0">
-                    <img
-                      src="/oppieG.png"
-                      alt="AI SaaS Character"
-                      className="h-24 w-24 object-contain"
-                    />
-                  </div>
-                  {/* text */}
-                  <div className="flex flex-col items-center justify-center gap-4 text-center">
-                    <Link href="/pricing" className="cursor-pointer">
-                      <h1 className="text-foreground text-lg font-semibold">
-                        <span>Launch platform for your products</span>
-                      </h1>
-                      <p className="text-muted-foreground text-sm">
-                        <span>Submit, get a badge & backlink</span>
-                      </p>
-                    </Link>
-                    <div>
-                      <a
-                        href="https://frogdr.com/open-launch.com?utm_source=open-launch.com"
-                        target="_blank"
-                      >
-                        {/* Light mode badge */}
-                        <img
-                          src="https://frogdr.com/open-launch.com/badge-white-sm.svg?round=1"
-                          alt="Monitor your Domain Rating with FrogDR"
-                          className="h-7 w-auto dark:hidden"
-                        />
-                        {/* Dark mode badge */}
-                        <img
-                          src="https://frogdr.com/open-launch.com/badge-dark-sm.svg?round=1"
-                          alt="Monitor your Domain Rating with FrogDR"
-                          className="hidden h-7 w-auto dark:block"
-                        />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* image 2 */}
-                  <div className="flex-shrink-0">
-                    <img
-                      src="/oppieD.png"
-                      alt="AI SaaS Character"
-                      className="h-24 w-24 object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          
 
             <ProjectSection
               title="Top Projects Launching Today"
@@ -170,11 +81,7 @@ export default async function Home() {
                 </div>
               </div>
             )}
-            {/* Sponsors */}
-            <div className="space-y-3 py-4">
-              <h3 className="flex items-center font-semibold">Sponsors</h3>
-              <SponsorCards />
-            </div>
+            
 
             {/* Categories */}
             <div className="space-y-3 py-4">

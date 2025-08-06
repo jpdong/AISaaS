@@ -24,7 +24,13 @@ export const metadata: Metadata = {
   title: "AI SaaS - Discover the Best AI SaaS Products",
   description:
     "AI SaaS is a platform to discover and upvote the best tech products. Find top products launching daily.",
-  openGraph: {
+    icons: {
+      icon: '/logo.png',
+    },
+    alternates: {
+      canonical: `https://ai-saas.org/`,
+    },
+    openGraph: {
     title: "AI SaaS - Discover the Best AI SaaS Products",
     description:
       "AI SaaS is a platform to discover and upvote the best AI SaaS products. Find top products launching daily.",

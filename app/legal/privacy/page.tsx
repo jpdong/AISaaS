@@ -1,8 +1,8 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Privacy Policy - AI SaaS",
-  description: "Privacy Policy for AI SaaS platform",
+  title: "Privacy Policy - AI SaaS Discovery Platform",
+  description: "Privacy Policy for AI SaaS Discovery Platform",
 }
 
 export default function PrivacyPolicyPage() {
@@ -24,9 +24,9 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="mb-3 text-xl font-semibold">1. Introduction</h2>
               <p className="mb-3">
-                At AI SaaS, we highly value the protection of your personal data. This privacy
+                At our AI SaaS Discovery Platform, we highly value the protection of your personal data. This privacy
                 policy explains how we collect, use, and protect your information when you use our
-                platform.
+                platform. We are committed to providing a safe and transparent discovery and showcase platform for AI SaaS project creators and users.
               </p>
             </section>
 
@@ -37,18 +37,22 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="mb-3 list-disc space-y-1 pl-6">
                 <li>Account information (name, email address, password)</li>
-                <li>Profile information (username, photo)</li>
-                <li>Content you publish (project submissions, comments)</li>
+                <li>Profile information (username, avatar, bio)</li>
+                <li>Content you publish (AI SaaS project submissions, comments, reviews)</li>
                 <li>Communications with us</li>
+                <li>Project-related information (project descriptions, tech stack, categories, pricing models)</li>
+                <li>AI tool preferences and usage patterns</li>
               </ul>
 
               <p className="mb-3">
                 <strong>Information automatically collected:</strong>
               </p>
               <ul className="mb-3 list-disc space-y-1 pl-6">
-                <li>Usage data (pages visited, time spent, interactions)</li>
+                <li>Usage data (pages visited, time spent, interaction patterns)</li>
                 <li>Device information (device type, operating system, browser)</li>
-                <li>Country</li>
+                <li>Geographic location (country/region)</li>
+                <li>AI SaaS discovery behavior and preferences</li>
+                <li>Search queries and filtering preferences</li>
               </ul>
             </section>
 
@@ -56,12 +60,15 @@ export default function PrivacyPolicyPage() {
               <h2 className="mb-3 text-xl font-semibold">3. How We Use Your Information</h2>
               <p className="mb-3">We use your information to:</p>
               <ul className="mb-3 list-disc space-y-1 pl-6">
-                <li>Provide, maintain, and improve our platform</li>
-                <li>Create and manage your account</li>
-                <li>Process your transactions</li>
-                <li>Communicate with you about our services</li>
-                <li>Personalize your experience</li>
-                <li>Ensure the security of our platform</li>
+                <li>Provide, maintain, and improve our AI SaaS discovery platform</li>
+                <li>Create and manage your account and profile</li>
+                <li>Process project submissions and showcase AI SaaS tools</li>
+                <li>Facilitate discovery of relevant AI SaaS projects</li>
+                <li>Communicate with you about platform updates and featured projects</li>
+                <li>Personalize your AI tool discovery experience</li>
+                <li>Provide recommendations based on your interests and usage patterns</li>
+                <li>Ensure the security and integrity of our platform</li>
+                <li>Analyze platform usage to improve AI SaaS categorization and search</li>
                 <li>Comply with legal obligations</li>
               </ul>
             </section>
@@ -74,14 +81,16 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="mb-3 list-disc space-y-1 pl-6">
                 <li>
-                  <strong>With service providers</strong> who help us operate our platform
+                  <strong>With service providers</strong> who help us operate our AI SaaS discovery platform (hosting, analytics, email services)
                 </li>
                 <li>
-                  <strong>For legal obligations</strong> (when required by law or to protect our
-                  rights)
+                  <strong>Public project information</strong> that you choose to make visible (project names, descriptions, categories) to help others discover AI SaaS tools
                 </li>
                 <li>
-                  <strong>With your consent</strong> or according to your instructions
+                  <strong>For legal obligations</strong> (when required by law or to protect our rights and the rights of our users)
+                </li>
+                <li>
+                  <strong>With your explicit consent</strong> or according to your instructions
                 </li>
               </ul>
             </section>
@@ -99,10 +108,10 @@ export default function PrivacyPolicyPage() {
               <p className="mb-3">
                 To exercise these rights, contact us at{" "}
                 <a
-                  href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
+                  href="mailto:dongshan1025@gmail.com"
                   className="text-primary hover:underline"
                 >
-                  {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+                  dongshan1025@gmail.com
                 </a>
                 .
               </p>
@@ -111,17 +120,14 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="mb-3 text-xl font-semibold">6. Data Security</h2>
               <p className="mb-3">
-                We implement appropriate security measures to protect your information. However, no
-                method of transmission over the Internet or electronic storage is completely secure.
+                We implement appropriate technical and organizational security measures to protect your information against unauthorized access, alteration, disclosure, or destruction. This includes encryption, secure data transmission, and regular security assessments. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security.
               </p>
             </section>
 
             <section>
               <h2 className="mb-3 text-xl font-semibold">7. Data Retention</h2>
               <p className="mb-3">
-                We retain your personal data for as long as necessary to provide you with our
-                services and as required by law. When you delete your account, we delete your
-                personal data or anonymize it, unless retention is necessary for legal reasons.
+                We retain your personal data for as long as necessary to provide you with our AI SaaS discovery services and as required by law. When you delete your account, we delete your personal data or anonymize it, unless retention is necessary for legal reasons or to maintain the integrity of project discovery features. Published project information may remain visible to maintain the continuity of the discovery platform.
               </p>
             </section>
 
@@ -149,35 +155,15 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="mb-3">
                 <a
-                  href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
+                  href="mailto:dongshan1025@gmail.com"
                   className="text-primary hover:underline"
                 >
-                  {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+                  dongshan1025@gmail.com
                 </a>
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-3 text-xl font-semibold">11. Open Source Transparency</h2>
-              <p className="mb-3">
-                As an open source project, AI SaaS is committed to transparency in how we handle
-                data. Our source code is publicly available on{" "}
-                <a
-                  href="https://github.com/drdruide/open-launch"
-                  className="text-primary hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                , allowing you to review how we process and protect your information.
-              </p>
-              <p className="mb-3">
-                We encourage community contributions and feedback on our privacy practices. If you
-                have suggestions for improving our data handling, please open an issue or submit a
-                pull request on our GitHub repository.
-              </p>
-            </section>
+            
           </div>
 
           <div className="mt-8 border-t pt-6 dark:border-zinc-800">

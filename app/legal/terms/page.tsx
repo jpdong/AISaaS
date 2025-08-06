@@ -3,8 +3,8 @@
 import Link from "next/link"
 
 export const metadata = {
-  title: "Terms of Service - AI SaaS",
-  description: "Terms of Service for AI SaaS platform",
+  title: "Terms of Service - AI SaaS Discovery Platform",
+  description: "Terms of Service for AI SaaS Discovery Platform",
 }
 
 export default function TermsOfServicePage() {
@@ -26,11 +26,11 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="mb-3 text-xl font-semibold">1. Introduction</h2>
               <p className="mb-3">
-                Welcome to AI SaaS. These Terms of Service govern your use of our platform,
-                which focuses on discovering and supporting projects.
+                Welcome to our AI SaaS Discovery Platform. These Terms of Service govern your use of our platform,
+                which focuses on discovering, showcasing, and supporting AI SaaS projects and tools.
               </p>
               <p className="mb-3">
-                By using AI SaaS, you agree to these terms. If you don't agree, please don't use
+                By using our AI SaaS Discovery Platform, you agree to these terms. If you don't agree, please don't use
                 our services.
               </p>
             </section>
@@ -39,171 +39,111 @@ export default function TermsOfServicePage() {
               <h2 className="mb-3 text-xl font-semibold">2. Using Our Service</h2>
               <p className="mb-3">
                 <strong>Age Requirements:</strong> You must be at least 13 years old to use
-                AI SaaS.
+                our AI SaaS Discovery Platform.
               </p>
               <p className="mb-3">
                 <strong>Account Responsibility:</strong> If you create an account, you're
                 responsible for maintaining its security and for all activities under your account.
               </p>
               <p className="mb-3">
-                <strong>Acceptable Use:</strong> When using AI SaaS, you agree not to:
+                <strong>Acceptable Use:</strong> When using our platform, you agree not to:
               </p>
               <ul className="mb-3 list-disc space-y-1 pl-6">
+                <li>Submit false or misleading information about AI SaaS projects</li>
                 <li>Post content that's illegal, harmful, or violates others' rights</li>
-                <li>Misrepresent yourself or your affiliation with others</li>
+                <li>Misrepresent yourself, your projects, or your affiliation with others</li>
                 <li>Interfere with the platform's operation or security</li>
                 <li>Collect user data without permission</li>
-                <li>Use the service for unauthorized commercial purposes</li>
+                <li>Use the service for spam or unauthorized commercial purposes</li>
+                <li>Submit projects that violate intellectual property rights</li>
+                <li>Manipulate project rankings or reviews</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">3. Content</h2>
+              <h2 className="mb-3 text-xl font-semibold">3. Content and AI SaaS Project Submissions</h2>
               <p className="mb-3">
-                <strong>Your Content:</strong> When you submit projects, comments, or other content
-                on AI SaaS, you retain ownership, but grant us permission to display and use
-                that content on our platform.
+                <strong>Your Content:</strong> When you submit AI SaaS projects, descriptions, comments, or other content
+                on our platform, you retain ownership, but grant us permission to display, promote, and use
+                that content on our platform and in related marketing materials.
+              </p>
+              <p className="mb-3">
+                <strong>Project Accuracy:</strong> You're responsible for ensuring that all information about your AI SaaS projects is accurate, up-to-date, and truthful. This includes pricing, features, availability, and technical specifications.
               </p>
               <p className="mb-3">
                 <strong>Responsibility:</strong> You're responsible for the content you submit. Make
-                sure you have the right to share it and that it doesn't violate any laws or these
-                terms.
+                sure you have the right to share it and that it doesn't violate any laws, intellectual property rights, or these terms.
               </p>
               <p className="mb-3">
                 <strong>Our Rights:</strong> We can remove any content at our discretion if we
-                believe it violates these terms or might harm our platform, users, or third parties.
+                believe it violates these terms, is inaccurate, or might harm our platform, users, or third parties.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">4. Intellectual Property</h2>
+              <h2 className="mb-3 text-xl font-semibold">4. AI SaaS Project Discovery and Third-Party Services</h2>
               <p className="mb-3">
-                AI SaaS is an open source project licensed under the AI SaaS License. The
-                source code is available on{" "}
-                <a
-                  href="https://github.com/drdruide/open-launch"
-                  className="text-primary hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                .
+                Our platform may contain links to third-party AI SaaS tools, websites, or services. We're not responsible for the content, policies, practices, availability, or functionality of these third-party AI services.
               </p>
               <p className="mb-3">
-                While the core platform is open source, certain features or services may be
-                proprietary. The AI SaaS License allows you to:
-              </p>
-              <ul className="mb-3 list-disc space-y-1 pl-6">
-                <li>Use, copy, and modify the software</li>
-                <li>Distribute the software</li>
-                <li>Sublicense the software</li>
-              </ul>
-              <p className="mb-3">
-                <strong>Attribution Requirements:</strong> You must include the original copyright
-                notice and license in any substantial portions of the software. Additionally, if you
-                use this software in a web application or online service, you must display a visible
-                dofollow link to "https://open-launch.com" on ALL pages of your website (preferably
-                in the footer).
+                Your interactions with third-party AI SaaS providers, including purchases, subscriptions, or use of their services, are between you and that third party. We do not endorse or guarantee the quality, security, or reliability of any third-party AI tools.
               </p>
               <p className="mb-3">
-                <strong>MANDATORY Visual Badge:</strong> You MUST use one of our official "Powered
-                by AI SaaS" visual badges. Text-only attribution is NOT sufficient:
-              </p>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-4 p-6">
-                <img
-                  src="/images/badges/powered-by-light.svg"
-                  alt="Powered by AI SaaS - Light Theme"
-                  className="h-11 w-auto"
-                />
-                <img
-                  src="/images/badges/powered-by-dark.svg"
-                  alt="Powered by AI SaaS - Dark Theme"
-                  className="h-11 w-auto"
-                />
-              </div>
-              <p className="mb-3 text-sm text-yellow-700 dark:text-yellow-300">
-                <strong>⚠️ Important:</strong> The badge must be clearly visible (minimum 150x44
-                pixels), present on ALL pages, and not hidden or obfuscated.
-              </p>
-              <p className="mb-3">
-                <strong>📋 Get Implementation Code:</strong> Visit our{" "}
-                <Link href="/legal/badges" className="text-primary font-medium hover:underline">
-                  Attribution Badges page
-                </Link>{" "}
-                to copy the ready-to-use HTML/React code for these badges.
-              </p>
-              <p className="mb-3">
-                User-submitted content remains the property of the respective users, who grant
-                AI SaaS a license to display and use that content on our platform.
+                <strong>Project Verification:</strong> While we strive to maintain accurate information, we cannot guarantee that all AI SaaS project information is current or accurate. Users should verify details directly with project creators.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">5. Third-Party Content</h2>
+              <h2 className="mb-3 text-xl font-semibold">5. Termination</h2>
               <p className="mb-3">
-                AI SaaS may contain links to third-party websites or services, including
-                projects. We're not responsible for the content, policies, or practices of these
-                third parties.
+                We can suspend or terminate your access to our AI SaaS Discovery Platform at any time for any reason,
+                particularly if you violate these terms, submit false information, or engage in harmful behavior.
               </p>
               <p className="mb-3">
-                Your interactions with third-party services are between you and that third party.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="mb-3 text-xl font-semibold">6. Termination</h2>
-              <p className="mb-3">
-                We can suspend or terminate your access to AI SaaS at any time for any reason,
-                particularly if you violate these terms.
-              </p>
-              <p className="mb-3">
-                If your account is terminated, you'll no longer have access to your content or
-                account information.
+                If your account is terminated, you'll no longer have access to your submitted projects, account information, or platform features. However, publicly visible project information may remain on the platform to maintain discovery continuity.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">7. Disclaimers</h2>
+              <h2 className="mb-3 text-xl font-semibold">6. Disclaimers</h2>
               <p className="mb-3">
-                AI SaaS is provided "as is" without warranties of any kind. We don't guarantee
+                Our AI SaaS Discovery Platform is provided "as is" without warranties of any kind. We don't guarantee
                 that the service will be uninterrupted, secure, or error-free.
               </p>
               <p className="mb-3">
-                We're not responsible for the accuracy or reliability of any content posted by users
-                or third parties.
+                We're not responsible for the accuracy, reliability, quality, or performance of any AI SaaS projects, tools, or content posted by users or third parties. We do not endorse any specific AI SaaS solutions and encourage users to conduct their own research.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">8. Limitation of Liability</h2>
+              <h2 className="mb-3 text-xl font-semibold">7. Limitation of Liability</h2>
               <p className="mb-3">
-                To the extent permitted by law, AI SaaS and its team will not be liable for any
+                To the extent permitted by law, our AI SaaS Discovery Platform and its team will not be liable for any
                 indirect, incidental, special, or consequential damages resulting from your use of
-                or inability to use our service.
+                or inability to use our service, including any issues arising from third-party AI SaaS tools discovered through our platform.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">9. Changes to These Terms</h2>
+              <h2 className="mb-3 text-xl font-semibold">8. Changes to These Terms</h2>
               <p className="mb-3">
                 We may update these terms from time to time. We'll notify you of significant
                 changes, but it's your responsibility to review these terms periodically.
               </p>
               <p className="mb-3">
-                Your continued use of AI SaaS after changes means you accept the updated terms.
+                Your continued use of our AI SaaS Discovery Platform after changes means you accept the updated terms.
               </p>
             </section>
 
             <section>
-              <h2 className="mb-3 text-xl font-semibold">10. Contact Us</h2>
+              <h2 className="mb-3 text-xl font-semibold">9. Contact Us</h2>
               <p className="mb-3">If you have questions about these terms, please contact us at:</p>
               <p className="mb-3">
                 <a
-                  href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
+                  href="mailto:dongshan1025@gmail.com"
                   className="text-primary hover:underline"
                 >
-                  {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+                  dongshan1025@gmail.com
                 </a>
               </p>
             </section>

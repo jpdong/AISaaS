@@ -175,11 +175,7 @@ export default function ProjectLoading() {
                 <div className="bg-muted h-9 w-full animate-pulse rounded-md"></div>
               </div>
 
-              {/* Sponsors */}
-              <div className="space-y-3">
-                <div className="bg-muted h-4 w-16 animate-pulse rounded-md"></div>
-                <div className="bg-muted h-24 w-full animate-pulse rounded-md"></div>
-              </div>
+              
             </div>
           </div>
         </div>

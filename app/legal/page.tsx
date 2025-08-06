@@ -47,7 +47,6 @@ export default function LegalPage() {
               className="hover:bg-secondary/10 flex flex-col items-center rounded-lg border p-6 text-center transition-colors dark:border-zinc-800"
             >
               <RiMedalLine className="text-primary mb-4 h-12 w-12" />
-              <h2 className="mb-2 text-lg font-semibold">Attribution Badges</h2>
               <p className="text-muted-foreground text-sm">
                 Official badges for AI SaaS License attribution requirements.
               </p>

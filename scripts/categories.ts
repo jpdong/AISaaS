@@ -55,10 +55,9 @@ const TECH_PROJECT_CATEGORIES = [
 ]
 
 const initializeCategories = async () => {
-  const data = await db
-  const categories = await data.query.category.findMany()
+  const categories = await db.query.category.findMany()
   if (categories.length === 0) {
-    await data.insert(category).values(TECH_PROJECT_CATEGORIES)
+    await db.insert(category).values(TECH_PROJECT_CATEGORIES)
   }
 }
 
