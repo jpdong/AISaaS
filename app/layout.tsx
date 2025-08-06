@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Outfit as FontHeading, Inter as FontSans } from "next/font/google"
 
-import PlausibleProvider from "next-plausible"
 import { Toaster } from "sonner"
 
 import Footer from "@/components/layout/footer"
