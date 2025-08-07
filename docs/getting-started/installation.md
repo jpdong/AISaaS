@@ -89,15 +89,7 @@ GRANT ALL PRIVILEGES ON DATABASE open_launch TO open_launch_user;
 
 #### Docker (跨平台)
 
-```bash
-# 运行 PostgreSQL 容器
-docker run --name open-launch-postgres \\
-  -e POSTGRES_DB=open_launch \\
-  -e POSTGRES_USER=open_launch_user \\
-  -e POSTGRES_PASSWORD=your_password \\
-  -p 5432:5432 \\
-  -d postgres:15
-```
+
 
 ### 3. 安装 Redis
 
@@ -130,25 +122,10 @@ redis-cli ping
 
 #### Docker
 
-```bash
-# 运行 Redis 容器
-docker run --name open-launch-redis \\
-  -p 6379:6379 \\
-  -d redis:7-alpine
-```
+
 
 ### 4. 克隆项目
 
-```bash
-# 克隆仓库
-git clone https://github.com/drdruide/open-launch.git
-
-# 进入项目目录
-cd open-launch
-
-# 查看项目结构
-ls -la
-```
 
 ### 5. 安装项目依赖
 
@@ -178,7 +155,6 @@ nano .env  # 或使用您喜欢的编辑器
 ```env
 # 应用配置
 NEXT_PUBLIC_URL=http://localhost:3000
-NEXT_PUBLIC_CONTACT_EMAIL=contact@open-launch.com
 
 # 数据库配置
 DATABASE_URL=postgresql://open_launch_user:your_password@localhost:5432/open_launch
@@ -328,12 +304,5 @@ PORT=3001 bun run dev
 
 ## 获取帮助
 
-如果在安装过程中遇到问题：
-
-1. 查看 [常见问题](../troubleshooting/common-issues.md)
-2. 在 [GitHub Issues](https://github.com/drdruide/open-launch/issues) 中搜索相关问题
-3. 创建新的 Issue 描述您的问题
-
----
 
 *最后更新: 2025年1月4日*

@@ -80,10 +80,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "open-launch.com",
-      },
-      {
-        protocol: "https",
         hostname: "img.shields.io",
       },
     ],

@@ -39,9 +39,6 @@ Open Launch 的配置分为三类：
 # 应用访问地址
 NEXT_PUBLIC_URL=http://localhost:3000
 
-# 联系邮箱
-NEXT_PUBLIC_CONTACT_EMAIL=contact@open-launch.com
-```
 
 | 变量 | 说明 | 示例 |
 |------|------|------|

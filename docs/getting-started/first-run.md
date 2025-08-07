@@ -139,7 +139,6 @@ INSERT INTO "user" (
 ) VALUES (
   'admin_' || gen_random_uuid()::text,
   'Admin User',
-  'admin@open-launch.com',
   true,
   'admin',
   NOW(),
@@ -430,11 +429,7 @@ tail -f /usr/local/var/log/redis.log  # macOS
 
 ## 获取帮助
 
-如果在首次运行过程中遇到问题：
 
-1. 查看 [故障排除指南](../troubleshooting/common-issues.md)
-2. 检查 [GitHub Issues](https://github.com/drdruide/open-launch/issues)
-3. 在社区中寻求帮助
 
 ---
 

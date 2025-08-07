@@ -8,7 +8,6 @@ import { RiArrowLeftLine } from "@remixicon/react"
 import { auth } from "@/lib/auth"
 import { getProjectBySlug } from "@/app/actions/project-details"
 
-import { BadgesDisplay } from "../../../../components/badges/BadgesDisplay"
 
 interface BadgesPageProps {
   params: Promise<{
@@ -73,7 +72,6 @@ export default async function BadgesPage({ params }: BadgesPageProps) {
             on your website to showcase your achievement.
           </p>
 
-          <BadgesDisplay dailyRanking={projectData.dailyRanking} slug={projectData.slug} />
         </div>
       </div>
     </div>
