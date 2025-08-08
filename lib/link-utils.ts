@@ -12,7 +12,7 @@ interface ProjectLinkInfo {
 export function getProjectWebsiteRelAttribute(projectInfo: ProjectLinkInfo): string {
   let rel = "noopener";
 
-  const isPremiumTier =
+  /*const isPremiumTier =
     projectInfo.launchType === LAUNCH_TYPES.PREMIUM ||
     projectInfo.launchType === LAUNCH_TYPES.PREMIUM_PLUS;
 
@@ -25,7 +25,7 @@ export function getProjectWebsiteRelAttribute(projectInfo: ProjectLinkInfo): str
 
   if (!isPremiumTier && !isTop3Daily) {
     rel += " nofollow";
-  }
+  }*/
 
   return rel;
 } 
