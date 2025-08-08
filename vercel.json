@@ -1,16 +1,8 @@
 {
   "crons": [
     {
-      "path": "/api/cron/update-launches",
+      "path": "/api/cron/daily-tasks",
       "schedule": "0 0 * * *"
-    },
-    {
-      "path": "/api/cron/send-ongoing-reminders", 
-      "schedule": "0 9 * * *"
-    },
-    {
-      "path": "/api/cron/send-winner-notifications",
-      "schedule": "0 10 * * *"
     }
   ]
 }
