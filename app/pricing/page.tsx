@@ -134,11 +134,11 @@ export default async function PricingPage() {
                 <li className="flex items-start gap-2">
                   <RiCheckboxCircleFill className="text-muted-foreground mt-1 h-4 w-4" />
                   <div>
-                    <span>Dofollow Backlink only if:</span>
-                    <div className="text-muted-foreground mt-1.5 space-y-1 text-xs">
-                      <div>1. Top 3 daily ranking</div>
-                      <div>2. Display our badge on your site</div>
-                    </div>
+                    <span>Dofollow Backlink for free</span>
+                    {/*<div className="text-muted-foreground mt-1.5 space-y-1 text-xs">*/}
+                    {/*  <div>1. Top 3 daily ranking</div>*/}
+                    {/*  <div>2. Display our badge on your site</div>*/}
+                    {/*</div>*/}
                   </div>
                 </li>
               </ul>

@@ -8,12 +8,26 @@ import { auth } from "@/lib/auth" // Importer l'authentification
 const f = createUploadthing()
 
 const authenticateUser = async () => {
-  const session = await auth.api.getSession({ headers: await headers() })
-  const user = session?.user
+  try {
+    const session = await auth.api.getSession({ headers: await headers() })
+    const user = session?.user
 
-  if (!user?.id) throw new UploadThingError("Unauthorized")
+    console.log("UploadThing auth check:", { 
+      hasSession: !!session, 
+      hasUser: !!user, 
+      userId: user?.id 
+    })
 
-  return { userId: user.id }
+    if (!user?.id) {
+      console.error("UploadThing: User not authenticated")
+      throw new UploadThingError("Unauthorized")
+    }
+
+    return { userId: user.id }
+  } catch (error) {
+    console.error("UploadThing auth error:", error)
+    throw new UploadThingError("Authentication failed")
+  }
 }
 
 export const ourFileRouter = {
