@@ -12,9 +12,14 @@ const API_KEY = process.env.CRON_API_KEY
 export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get("authorization")
+    const vercelCronSecret = request.headers.get("x-vercel-cron-secret")
     const providedKey = authHeader?.replace("Bearer ", "")
 
-    if (!API_KEY || providedKey !== API_KEY) {
+    // Allow Vercel Cron (has x-vercel-cron-secret header) or external calls with API key
+    const isVercelCron = vercelCronSecret !== null
+    const isValidApiKey = API_KEY && providedKey === API_KEY
+    
+    if (!isVercelCron && !isValidApiKey) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
