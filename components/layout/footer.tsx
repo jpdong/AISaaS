@@ -10,7 +10,6 @@ const discoverLinks = [
 ]
 
 const resourcesLinks = [
-  { title: "Pricing", href: "/pricing" },
   { title: "Blog", href: "/blog" },
 ]
 

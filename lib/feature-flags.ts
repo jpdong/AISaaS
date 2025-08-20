@@ -4,17 +4,12 @@
  */
 
 export const featureFlags = {
-  // Stripe 支付功能
+  // Stripe 支付功能 - DISABLED to hide all paid features
   stripe: {
-    enabled: !!(
-      process.env.STRIPE_SECRET_KEY &&
-      process.env.STRIPE_SECRET_KEY !== "sk_test_..." &&
-      process.env.STRIPE_WEBHOOK_SECRET &&
-      process.env.STRIPE_WEBHOOK_SECRET !== "whsec_..."
-    ),
+    enabled: false,
     paymentLinks: {
-      premium: process.env.NEXT_PUBLIC_PREMIUM_PAYMENT_LINK || null,
-      premiumPlus: process.env.NEXT_PUBLIC_PREMIUM_PLUS_PAYMENT_LINK || null,
+      premium: null,
+      premiumPlus: null,
     },
   },
 

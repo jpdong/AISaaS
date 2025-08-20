@@ -1030,15 +1030,7 @@ export function SubmitProjectForm({ userId }: SubmitProjectFormProps) {
                     </li>
                     <li className="flex items-center gap-1.5">
                       <RiCheckboxCircleFill className="text-foreground/60 h-3.5 w-3.5 flex-shrink-0" />
-                      <span>Dofollow Backlink only if:</span>
-                    </li>
-                    <li className="flex items-start gap-1.5 pl-5">
-                      <span className="text-muted-foreground text-xs">1. Top 3 daily ranking</span>
-                    </li>
-                    <li className="flex items-start gap-1.5 pl-5">
-                      <span className="text-muted-foreground text-xs">
-                        2. Display our badge on your site
-                      </span>
+                      <span>Dofollow Backlink</span>
                     </li>
                   </ul>
                 </div>
@@ -1085,19 +1077,6 @@ export function SubmitProjectForm({ userId }: SubmitProjectFormProps) {
                   </div>
                 )}
 
-                {/* 当 Stripe 功能被禁用时显示提示 */}
-                {!featureFlags.stripe.enabled && (
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <div className="mb-2 flex items-center gap-2">
-                      <RiInformationLine className="h-4 w-4 text-gray-500" />
-                      <h5 className="font-medium text-gray-700">Premium Features Unavailable</h5>
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      Premium launch options are currently unavailable. You can still submit your
-                      project for free!
-                    </p>
-                  </div>
-                )}
 
                 {/* <div
                   className={`cursor-pointer rounded-lg border p-4 transition-all duration-150 ${
