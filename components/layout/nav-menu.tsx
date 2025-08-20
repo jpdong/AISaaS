@@ -106,13 +106,6 @@ export function NavMenu({ showDashboard = true }: NavMenuProps) {
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="/pricing" className={`${navigationMenuTriggerStyle()} h-9 px-3 text-sm`}>
-              Pricing
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
 
       </NavigationMenuList>
     </NavigationMenu>

@@ -424,7 +424,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               )}
 
               {/* Pricing */}
-              {projectData.pricing && (
+              {/*{projectData.pricing && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground text-xs font-medium tracking-wider uppercase">
@@ -436,7 +436,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     </span>
                   </div>
                 </div>
-              )}
+              )}*/}
 
               {/* Social Links */}
               {(projectData.githubUrl || projectData.twitterUrl) && (

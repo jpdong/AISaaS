@@ -194,8 +194,18 @@ function PaymentSuccessLoading() {
 // Composant principal avec Suspense
 export default function PaymentSuccessPage() {
   return (
-    <Suspense fallback={<PaymentSuccessLoading />}>
-      <PaymentSuccessContent />
-    </Suspense>
+    <div className="flex min-h-[70vh] items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md">
+        <div className="bg-card rounded-lg border p-8 text-center shadow-md">
+          <h1 className="mb-3 text-2xl font-bold">Payment Features Disabled</h1>
+          <p className="text-muted-foreground mb-6">
+            Payment functionality is currently disabled. All projects can be submitted for free!
+          </p>
+          <a href="/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
   )
 }
